@@ -1,32 +1,13 @@
-.navbar-custom {
-    background-color:black;
-    color:#ffffff;
-    border-radius:0;
+.thumbnail{
+    width: 200px;
+    height: 350px;
+    overflow: auto;
 }
-
-.navbar-custom .navbar-nav > li > a {
-    color:#fff;
-}
-.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
-    color: #ffffff;
-    background-color:transparent;
-}
-.navbar-custom .navbar-brand {
-    color:#eeeeee;
-}
-/*.item
+.modal-title
 {
-	height: 500px;
-	width: 800px;
-}*/
-span
+    background-color: green;
+}
+.modal-dialog
 {
-	position:absolute;
-    bottom:0px;
-    left:0px;
-    color:red;
-    font-size:1.5em;
-    z-index: 5;
-    -webkit-text-stroke-width: 1px;
-   -webkit-text-stroke-color: black;
+    background-color: #aaa;
 }
