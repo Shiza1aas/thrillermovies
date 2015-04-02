@@ -1,58 +1,32 @@
-window.onload = initialize;
-$.ajaxSetup({ cache: false });
-function initialize () 
+$(document).ready(function() 
 {
-	
-	request = createRequest();
-
-	if ( request == null )
-	{
-		alert('Unable to process');
-		return;
-	}	
-	else
-	{
-		request.onreadystatechange = showTabContent;
-		request.open("GET","list.html",true);
-		request.send(null);
+	$('#home').addClass('active_nav');
+	$.ajax({ 
+			type: "POST",
+			url: "home.php",
+			dataType: "html",
+			success: function(html){
+			
+			$('#caurasoul').load('home.php');
 	}
+ });
 
-	
-}
-
-function showTabContent () {
-	// alert(curId);
-	if ( request.readyState == 4 )
+	$('#list').click(function(e) 
 	{
-		if ( request.status == 200 )
-		{
-   
-			document.getElementById("listContent").innerHTML = request.responseText;
-		}
-	}
-}
+		$('#contents').html("<h1> Waiting for PHP </h1>");
+		$('#home').removeClass('active_nav');  
+		$('#list').addClass('active_nav');
+   	 	alert("List is clicked");
+		$.ajax({ 
+			type: "POST",
+			url: "list.php",
+			dataType: "html",
+			success: function(html){
+			
+			$('#contents').load('list.php');
+				}
+			 });
 
 
-// create ajax request
-
-
-function createRequest() {
-  try {
-    request = new XMLHttpRequest();
-  } catch (tryMS) {
-    try {
-      request = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (otherMS) {
-      try {
-        request = new ActiveXObject("Microsoft.XMLHTTP");
-      } catch (failed) {
-        request = null;
-      }
-    }
-  } 
-  return request;
-}
-        
-
-
-        // window.onload = takeElement;
+	});
+});

@@ -11,3 +11,8 @@
 {
     background-color: #aaa;
 }
+.active_nav
+{
+	background-color: red;
+	border-radius: 10px;
+}
